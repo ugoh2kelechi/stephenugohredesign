@@ -1,0 +1,15 @@
+<div class="section pt-0">
+    <div class="container">
+        <div class="section-title text-center">
+            <h6 class="subtitle"> <span></span> Gallery <span></span> </h6>
+            <h4 class="title">Our Gallery</h4>
+        </div>
+        <div class="row no-gutters masonry">
+            <div class="col-lg-4 col-6 masonry-item" *ngFor="let item of gallery">
+                <a href="{{item.image}}" class="gallery-thumb">
+                    <img [src]="item.image" alt="gallery">
+                </a>
+            </div>
+        </div> 
+    </div>
+</div>

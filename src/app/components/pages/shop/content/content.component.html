@@ -1,0 +1,61 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Product Count & Orderby Start -->
+                <div class="sigma_shop-global">
+                    <p>Showing <b>{{shopblock.length}}</b> products </p>
+                    <form method="post">
+                        <select class="form-control" name="orderby">
+                            <option value="default">Default sorting</option>
+                            <option value="latest">Latest release</option>
+                            <option value="price-down">Price: High - Low</option>
+                            <option value="price-up">Price: Low - High</option>
+                            <option value="popularity">Popularity Sorting</option>
+                        </select>
+                    </form>
+                </div>
+                <!-- Product Count & Orderby End -->
+                <div class="row masonry">
+                    <!-- Product Start -->
+                    <div class="col-md-4 col-sm-6 masonry-item" *ngFor="let item of shopblock | paginate: { itemsPerPage: 9, currentPage: page }">
+                        <div class="sigma_product">
+                            <div class="sigma_product-thumb">
+                                <a routerLink="/shop-details/{{item.id}}">
+                                    <img [src]="item.image[0]" [alt]="item.title">
+                                </a>
+                                <div class="sigma_product-controls">
+                                    <a href="javascript:void(0)" ngbTooltip="Add to Wishlist" (click)="handleAddToWishlist(item)" [ngClass]="isProductInWishlist(item.id) ? 'd-none' : ''"> <i class="far fa-heart"></i> </a>
+                                    <a href="javascript:void(0)" ngbTooltip="Remove to Wishlist" (click)="handleDeleteFromWishlist(item)" class="active" [ngClass]="isProductInWishlist(item.id) ? '' : 'd-none'"> <i class="far fa-heart"></i> </a>
+                                    <a href="javascript:void(0)" ngbTooltip="Add To Cart" (click)="handleAddToCart(item)" *ngIf="item.stock"> <i class="far fa-shopping-basket"></i> </a>
+                                    <a href="javascript:void(0)" ngbTooltip="Add To Cart" *ngIf="!item.stock" (click)="handleOutofStock()"> <i class="far fa-shopping-basket"></i> </a>
+                                </div>
+                            </div>
+                            <div class="sigma_product-body">
+                                <h5 class="sigma_product-title"> 
+                                    <a routerLink="/shop-details/{{item.id}}">{{item.title}}</a>    
+                                </h5>
+                                <div class="sigma_product-price">
+                                    <span>{{item.price * (100 - item.discount) / 100 | number:'1.2-2'}}$</span>
+                                    <span *ngIf="item.discount">{{item.price | number:'1.2-2'}}$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product End -->
+                </div>
+                <!-- Pagination Start -->
+                <div class="pagination-wrap pagination">
+                    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+                    </pagination-controls>
+                </div>
+                <!-- Pagination End -->
+            </div>
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <app-shop-sidebar></app-shop-sidebar>
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+</div>

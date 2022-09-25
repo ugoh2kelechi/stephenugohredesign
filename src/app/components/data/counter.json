@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "value":75,
+        "title":"Sermons Made"
+    },
+    {
+        "id":2,
+        "value":250,
+        "title":"Donation Attended"
+    },
+    {
+        "id":3,
+        "value":530,
+        "title":"Times Charityed"
+    },
+    {
+        "id":4,
+        "value":764,
+        "title":"Funds Raised"
+    }
+]

@@ -1,0 +1,30 @@
+<div class="section section-padding light-bg">
+    <div class="container">
+        <div class="section-title text-center">
+            <h6 class="subtitle"> <span></span> Pricing <span></span> </h6>
+            <h4 class="title">Ticket Price & Plan</h4>
+        </div>
+        <div class="row">
+            <!-- Pricing Item Start -->
+            <div class="col-md-6 col-lg-4" *ngFor="let item of plans">
+                <div class="sigma_pricing text-center">
+                    <div class="sigma_pricing-info">
+                        <div class="sigma_pricing-icon">
+                            <img [src]="item.icon" [alt]="item.plantitle">
+                        </div>
+                        <h5 class="sigma_pricing-title">{{item.category}}</h5>
+                        <div class="sigma_pricing-price">
+                            <span class="sigma_pricing-currency">$</span>
+                            <span>{{item.price | number:'1.0-0'}}</span>
+                        </div>
+                    </div>
+                    <ul class="list-style-none">
+                        <li *ngFor="let list of item.includes"><i class="fa fa-check"></i>{{list}}</li>
+                        <li><a class="sigma_btn-custom primary light" routerLink="/contact">Get Ticket</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Pricing Item End -->
+        </div>
+    </div>
+</div>

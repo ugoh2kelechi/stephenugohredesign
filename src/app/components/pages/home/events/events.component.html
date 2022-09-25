@@ -1,0 +1,17 @@
+<div class="section section-padding pt-0">
+    <div class="container-fluid">
+        <ngx-slick-carousel #slickModal="slick-carousel" [config]="settings" class="portfolio-slider">
+            <div ngxSlickItem class="sigma_portfolio-item" *ngFor="let item of eventblock">
+                <img [src]="item.gridimg" [alt]="item.title">
+                <div class="sigma_portfolio-item-content">
+                    <div class="sigma_portfolio-item-content-inner">
+                        <span class="fw-600 custom-primary"> {{item.eventdate}} </span>
+                        <h5> <a routerLink="/event-details/{{item.id}}"> {{item.title}} </a> </h5>
+                        <p>{{item.shortdesc}}</p>
+                    </div>
+                    <a routerLink="/event-details/{{item.id}}"><i class="fal fa-plus"></i></a>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</div>

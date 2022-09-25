@@ -1,0 +1,78 @@
+<div class="section" *ngFor="let item of eventdetails">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <!-- Categories Start -->
+                    <div class="sidebar-widget widget-categories">
+                        <ul class="sidebar-widget-list">
+                            <li *ngFor="let data of eventblock"> <a routerLink="/event-details/{{data.id}}">
+                                    {{data.title}} <span> <i class="far fa-plus"></i> </span> </a> </li>
+                        </ul>
+                    </div>
+                    <!-- Categories End -->
+                    <!-- About Author Start -->
+                    <div class="sidebar-widget widget-about-author" *ngFor="let author of getAuthor(item.author)">
+                        <div class="widget-about-author-inner">
+                            <img [src]="author.img" [alt]="author.name">
+                            <div class="widget-about-author-body">
+                                <h5>{{author.name}}</h5>
+                                <p>{{author.designation}}</p>
+                                <ul class="sigma_sm">
+                                    <li *ngFor="let social of author.social">
+                                        <a routerLink="{{social.url}}" [title]="social.title"> <i
+                                                [class]="social.icon"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About Author End -->
+                    <!-- Files Start -->
+                    <div class="sidebar-widget widget-files">
+                        <h5 class="widget-title text-white"> Brochures </h5>
+                        <a href="#" class="d-block sigma_btn-custom" download="download.pdf"> <i
+                                class="far fa-file-pdf mr-2"></i> Brochure</a>
+                        <a href="#" class="mt-4 d-block sigma_btn-custom" download="download.pdf"> <i
+                                class="far fa-file mr-2"></i> Brochure</a>
+                    </div>
+                    <!-- Files End -->
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="entry-content">
+                    <div class="sigma_portfolio-details justify-content-center">
+                        <div class="sigma_portfolio-details-item">
+                            <span>{{item.eventdate}}</span>
+                            <h5>Event Date</h5>
+                        </div>
+                        <div class="sigma_portfolio-details-item">
+                            <span>Organiser</span>
+                            <h5 *ngFor="let author of getAuthor(item.author)">{{author.name}}</h5>
+                        </div>
+                        <div class="sigma_portfolio-details-item">
+                            <span>Category</span>
+                            <h5 *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</h5>
+                        </div>
+                    </div>
+                    <h3>{{item.title}}</h3>
+                    <div [innerHtml]="item.htmldesc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-plans></app-plans>
+<div class="section">
+    <div class="container">
+        <div class="section-title text-center">
+            <h6 class="subtitle"> <span></span> Location <span></span> </h6>
+            <h4 class="title">Find The Event</h4>
+        </div>
+        <div class="sigma_map">
+            <iframe title="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7060970.521913474!2d-102.60272453381052!3d37.588245893295074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1495005824042"
+                style="border:0"></iframe>
+        </div>
+    </div>
+</div>

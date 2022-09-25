@@ -1,0 +1,44 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Donation Start -->
+            <div class="col-lg-4 col-md-6" *ngFor="let item of donationblock | paginate: { itemsPerPage: 6, currentPage: page }">
+                <div class="sigma_donation sigma_post">
+                    <div class="sigma_post-thumb">
+                        <a routerLink="/donation-details/{{item.id}}">
+                            <img [src]="item.image" [alt]="item.title">
+                        </a>
+                    </div>
+                    <div class="sigma_donation-progress">
+                        <div class="progress-bar" [style.width.%]="item.raised * 100 / item.goal">
+                        </div>
+                    </div>
+                    <div class="sigma_post-body">
+                        <div class="sigma_donation-amount">
+                            <div class="sigma_donation-amount-item">
+                                <p>Raised:</p>
+                                <span>${{item.raised}}</span>
+                            </div>
+                            <div class="sigma_donation-amount-item">
+                                <p>Goal:</p>
+                                <span>${{item.goal}}</span>
+                            </div>
+                        </div>
+                        <div class="sigma_post-desc text-center">
+                            <h5> <a routerLink="/donation-details/{{item.id}}">{{item.title}}</a> </h5>
+                            <p>{{item.shortdesc}}</p>
+                            <a class="sigma_btn-custom light" routerLink="/donation-details/{{item.id}}">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Donation End -->
+        </div>
+        <!-- Pagination Start -->
+        <div class="pagination-wrap pagination mb-0">
+            <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+            </pagination-controls>
+        </div>
+        <!-- Pagination End -->
+    </div>
+</div>

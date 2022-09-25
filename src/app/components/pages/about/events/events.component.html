@@ -1,0 +1,40 @@
+<div class="section">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="sigma_portfolio-item" *ngFor="let item of eventblock | slice:0:2">
+                <img [src]="item.gridimg" [alt]="item.title">
+                <div class="sigma_portfolio-item-content">
+                    <div class="sigma_portfolio-item-content-inner text-left">
+                        <a href="#" class="custom-primary fw-600 fs-14" *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</a>
+                        <h5> <a routerLink="/event-details/{{item.id}}"> {{item.title}} </a> </h5>
+                        <a routerLink="/event-details/{{item.id}}" class="mt-3 sigma_btn-custom btn-sm text-white light"> Event Details </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4" *ngFor="let item of eventblock | slice:2:3">
+            <div class="sigma_portfolio-item full">
+                <img [src]="item.gridimg" [alt]="item.title">
+                <div class="sigma_portfolio-item-content">
+                    <div class="sigma_portfolio-item-content-inner text-left">
+                        <a href="#" class="custom-primary fw-600 fs-14" *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</a>
+                        <h5> <a routerLink="/event-details/{{item.id}}"> {{item.title}} </a> </h5>
+                        <a routerLink="/event-details/{{item.id}}" class="mt-3 sigma_btn-custom btn-sm text-white light"> Event Details </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="sigma_portfolio-item" *ngFor="let item of eventblock | slice:3:5">
+                <img [src]="item.gridimg" [alt]="item.title">
+                <div class="sigma_portfolio-item-content">
+                    <div class="sigma_portfolio-item-content-inner text-left">
+                        <a href="#" class="custom-primary fw-600 fs-14" *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</a>
+                        <h5> <a routerLink="/event-details/{{item.id}}"> {{item.title}} </a> </h5>
+                        <a routerLink="/event-details/{{item.id}}" class="mt-3 sigma_btn-custom btn-sm text-white light"> Event Details </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

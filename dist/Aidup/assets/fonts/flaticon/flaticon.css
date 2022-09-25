@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?ea364084b73dbcc9b3282415c933f80d") format("truetype"),
+url("./flaticon.woff?ea364084b73dbcc9b3282415c933f80d") format("woff"),
+url("./flaticon.woff2?ea364084b73dbcc9b3282415c933f80d") format("woff2"),
+url("./flaticon.eot?ea364084b73dbcc9b3282415c933f80d#iefix") format("embedded-opentype"),
+url("./flaticon.svg?ea364084b73dbcc9b3282415c933f80d#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, 
+i[class*=" flaticon-"]:before,
+span[class^="flaticon-"]:before, 
+span[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-adoption-1:before {
+    content: "\f101";
+}
+.flaticon-adoption:before {
+    content: "\f102";
+}
+.flaticon-award:before {
+    content: "\f103";
+}
+.flaticon-best-price:before {
+    content: "\f104";
+}
+.flaticon-charity-1:before {
+    content: "\f105";
+}
+.flaticon-charity:before {
+    content: "\f106";
+}
+.flaticon-credit-card:before {
+    content: "\f107";
+}
+.flaticon-diamond:before {
+    content: "\f108";
+}
+.flaticon-donation-1:before {
+    content: "\f109";
+}
+.flaticon-donation:before {
+    content: "\f10a";
+}
+.flaticon-food-donation:before {
+    content: "\f10b";
+}
+.flaticon-headphones:before {
+    content: "\f10c";
+}
+.flaticon-healthcare:before {
+    content: "\f10d";
+}
+.flaticon-helping-hand:before {
+    content: "\f10e";
+}
+.flaticon-money:before {
+    content: "\f10f";
+}
+.flaticon-pay:before {
+    content: "\f110";
+}
+.flaticon-reading:before {
+    content: "\f111";
+}
+.flaticon-search:before {
+    content: "\f112";
+}
+.flaticon-security:before {
+    content: "\f113";
+}
+.flaticon-speed:before {
+    content: "\f114";
+}
+.flaticon-target:before {
+    content: "\f115";
+}
+.flaticon-telephone:before {
+    content: "\f116";
+}
+.flaticon-trophy:before {
+    content: "\f117";
+}
+.flaticon-water-tap:before {
+    content: "\f118";
+}

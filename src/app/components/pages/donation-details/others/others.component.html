@@ -1,0 +1,50 @@
+<div class="section pt-0">
+    <div class="container">
+        <div class="sigma_related-posts">
+            <div class="section-title text-left flex-title">
+                <div class="">
+                    <h6 class="subtitle"> <span></span> Donation Causes <span></span> </h6>
+                    <h4 class="title">Other Causes</h4>
+                </div>
+                <div class="sigma_arrows mb-lg-30">
+                    <i class="far fa-chevron-left slick-arrow slider-prev"></i>
+                    <i class="far fa-chevron-right slick-arrow slider-next"></i>
+                </div>
+            </div>
+            <!-- Causes Start -->
+            <ngx-slick-carousel #slickModal="slick-carousel" [config]="settings" class="sigma_related-slider">
+                <!-- Donation Start -->
+                <div ngxSlickItem class="sigma_donation sigma_post" *ngFor="let item of donationblock">
+                    <div class="sigma_post-thumb">
+                        <a routerLink="/donation-details/{{item.id}}">
+                            <img [src]="item.image" [alt]="item.title">
+                        </a>
+                    </div>
+                    <div class="sigma_donation-progress">
+                        <div class="progress-bar" [style.width.%]="item.raised * 100 / item.goal">
+                        </div>
+                    </div>
+                    <div class="sigma_post-body">
+                        <div class="sigma_donation-amount">
+                            <div class="sigma_donation-amount-item">
+                                <p>Raised:</p>
+                                <span>${{item.raised}}</span>
+                            </div>
+                            <div class="sigma_donation-amount-item">
+                                <p>Goal:</p>
+                                <span>${{item.goal}}</span>
+                            </div>
+                        </div>
+                        <div class="sigma_post-desc text-center">
+                            <h5> <a routerLink="/donation-details/{{item.id}}">{{item.title}}</a> </h5>
+                            <p>{{item.shortdesc}}</p>
+                            <a class="sigma_btn-custom light" routerLink="/donation-details/{{item.id}}">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Donation End -->
+            </ngx-slick-carousel>
+            <!-- Causes End -->
+        </div>
+    </div>
+</div>

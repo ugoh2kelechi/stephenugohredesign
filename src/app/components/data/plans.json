@@ -1,0 +1,47 @@
+[
+    {
+        "id":1,
+        "icon":"assets/img/pricing-1.png",
+        "plantitle":"Standard",
+        "category":"Personal Package",
+        "price":29,
+        "period":"person",
+        "includes":[
+            "Donate for Helpless",
+            "Donate for Charity School",
+            "Donate for Humanity",
+            "Donate for Social work"
+        ],
+        "btntype":"primary light"
+    },
+    {
+        "id":2,
+        "icon":"assets/img/pricing-1.png",
+        "plantitle":"Professional",
+        "category":"Family Package",
+        "price":60,
+        "period":"person",
+        "includes":[
+            "Donate for Helpless",
+            "Donate for Charity School",
+            "Donate for Humanity",
+            "Donate for Social work"
+        ],
+        "btntype":"secondary"
+    },
+    {
+        "id":3,
+        "icon":"assets/img/pricing-1.png",
+        "plantitle":"Premium",
+        "category":"Couple Package",
+        "price":90,
+        "period":"person",
+        "includes":[
+            "Donate for Helpless",
+            "Donate for Charity School",
+            "Donate for Humanity",
+            "Donate for Social work"
+        ],
+        "btntype":"primary light"
+    }
+]

@@ -1,0 +1,38 @@
+<div class="section light-bg">
+    <div class="container">
+        <div class="section-title text-center">
+            <h6 class="subtitle"> <span></span> Cause Donors <span></span> </h6>
+            <h4 class="title">Our Proud Donors</h4>
+        </div>
+        <div class="table-responsive-md">
+            <table>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">New Donors</th>
+                        <th scope="col">Cause</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <tr *ngFor="let item of donors">
+                        <th scope="row">
+                            <div class="sigma_cart-product-wrapper" *ngFor="let donor of getDonor(item.donor)">
+                                <img [src]="donor.img" [alt]="donor.name" class="rounded-circle">
+                                <div class="sigma_cart-product-body">
+                                    <span class="custom-secondary"> {{donor.name}} </span>
+                                </div>
+                            </div>
+                        </th>
+                        <td>{{item.cause}}</td>
+                        <td>{{item.donationdate}}</td>
+                        <td>${{item.amount | number:'1.2-2'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section-button text-center">
+            <a href="#" class="sigma_btn-custom">Load More</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="section sigma_post-single sigma_donation-single" *ngFor="let item of donationdetails">
+    <div class="container">
+        <div class="section">
+            <div class="sigma_post-single-thumb">
+                <img [src]="item.image" [alt]="item.title" class="w-100">
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="sigma_icon-block icon-block-3">
+                        <i class="flaticon-donation"></i>
+                        <div class="sigma_icon-block-content">
+                            <h5>${{item.raised | number:'1.2-2'}}</h5>
+                            <p>Fund Collection Raised</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="sigma_icon-block icon-block-3">
+                        <i class="flaticon-donation-1"></i>
+                        <div class="sigma_icon-block-content">
+                            <h5>${{item.goal | number:'1.2-2'}}</h5>
+                            <p>Fund Collection Goal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="entry-content">
+                <h3>{{item.title}}</h3>
+                <div [innerHtml]="item.htmldesc"></div>
+            </div>
+        </div>
+        <!-- Post Share Start -->
+        <div class="sigma_post-single-meta-item sigma_post-share">
+            <ul class="sigma_sm justify-content-start">
+                <li *ngFor="let social of socialShare(item.title)">
+                    <a href="javascript:void(0)" (click)="openSocialPopup(social)">
+                        <i [class]="social.iconClass"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Post Share End -->
+    </div>
+</div>

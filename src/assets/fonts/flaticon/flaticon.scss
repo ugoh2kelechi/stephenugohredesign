@@ -1,0 +1,121 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?ea364084b73dbcc9b3282415c933f80d") format("truetype"),
+url("./flaticon.woff?ea364084b73dbcc9b3282415c933f80d") format("woff"),
+url("./flaticon.woff2?ea364084b73dbcc9b3282415c933f80d") format("woff2"),
+url("./flaticon.eot?ea364084b73dbcc9b3282415c933f80d#iefix") format("embedded-opentype"),
+url("./flaticon.svg?ea364084b73dbcc9b3282415c933f80d#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "adoption-1": "\f101",
+    "adoption": "\f102",
+    "award": "\f103",
+    "best-price": "\f104",
+    "charity-1": "\f105",
+    "charity": "\f106",
+    "credit-card": "\f107",
+    "diamond": "\f108",
+    "donation-1": "\f109",
+    "donation": "\f10a",
+    "food-donation": "\f10b",
+    "headphones": "\f10c",
+    "healthcare": "\f10d",
+    "helping-hand": "\f10e",
+    "money": "\f10f",
+    "pay": "\f110",
+    "reading": "\f111",
+    "search": "\f112",
+    "security": "\f113",
+    "speed": "\f114",
+    "target": "\f115",
+    "telephone": "\f116",
+    "trophy": "\f117",
+    "water-tap": "\f118",
+);
+
+.flaticon-adoption-1:before {
+    content: map-get($flaticon-map, "adoption-1");
+}
+.flaticon-adoption:before {
+    content: map-get($flaticon-map, "adoption");
+}
+.flaticon-award:before {
+    content: map-get($flaticon-map, "award");
+}
+.flaticon-best-price:before {
+    content: map-get($flaticon-map, "best-price");
+}
+.flaticon-charity-1:before {
+    content: map-get($flaticon-map, "charity-1");
+}
+.flaticon-charity:before {
+    content: map-get($flaticon-map, "charity");
+}
+.flaticon-credit-card:before {
+    content: map-get($flaticon-map, "credit-card");
+}
+.flaticon-diamond:before {
+    content: map-get($flaticon-map, "diamond");
+}
+.flaticon-donation-1:before {
+    content: map-get($flaticon-map, "donation-1");
+}
+.flaticon-donation:before {
+    content: map-get($flaticon-map, "donation");
+}
+.flaticon-food-donation:before {
+    content: map-get($flaticon-map, "food-donation");
+}
+.flaticon-headphones:before {
+    content: map-get($flaticon-map, "headphones");
+}
+.flaticon-healthcare:before {
+    content: map-get($flaticon-map, "healthcare");
+}
+.flaticon-helping-hand:before {
+    content: map-get($flaticon-map, "helping-hand");
+}
+.flaticon-money:before {
+    content: map-get($flaticon-map, "money");
+}
+.flaticon-pay:before {
+    content: map-get($flaticon-map, "pay");
+}
+.flaticon-reading:before {
+    content: map-get($flaticon-map, "reading");
+}
+.flaticon-search:before {
+    content: map-get($flaticon-map, "search");
+}
+.flaticon-security:before {
+    content: map-get($flaticon-map, "security");
+}
+.flaticon-speed:before {
+    content: map-get($flaticon-map, "speed");
+}
+.flaticon-target:before {
+    content: map-get($flaticon-map, "target");
+}
+.flaticon-telephone:before {
+    content: map-get($flaticon-map, "telephone");
+}
+.flaticon-trophy:before {
+    content: map-get($flaticon-map, "trophy");
+}
+.flaticon-water-tap:before {
+    content: map-get($flaticon-map, "water-tap");
+}

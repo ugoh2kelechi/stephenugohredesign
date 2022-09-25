@@ -1,0 +1,105 @@
+<header class="sigma_header header-2">
+    <div class="sigma_header-top">
+        <div class="container-fluid">
+            <div class="sigma_header-top-inner">
+                <ul class="sigma_header-top-links">
+                    <li class="menu-item"> <a href="tel:+123456789"> <i class="fal fa-phone"></i> (+123) 123 4567
+                            890</a> </li>
+                    <li class="menu-item"> <a href="mailto:example@example.com"> <i class="fal fa-envelope"></i>
+                            example@example.com</a> </li>
+                </ul>
+                <ul class="sigma_header-top-links">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#"> Language</a>
+                        <ul class="sub-menu sub-menu-left">
+                            <li> <a href="#">English</a> </li>
+                            <li> <a href="#">German</a> </li>
+                            <li> <a href="#">French</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="sigma_header-top-cta">
+                    <a routerLink="/donations" class="sigma_btn-custom btn-sm">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Middle Header Start -->
+    <div class="sigma_header-middle">
+        <nav class="navbar">
+            <!-- Logo Start -->
+            <div class="sigma_logo-wrapper">
+                <a class="navbar-brand" routerLink="/"> <img src="assets/img/logo-dark.png" alt="logo"> </a>
+            </div>
+            <!-- Logo End -->
+            <!-- Menu -->
+            <ul class="navbar-nav">
+                <li class="menu-item" [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
+                    *ngFor="let item of navigation">
+                    <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
+                    <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                    <ul class="sub-menu" *ngIf="item.child" [ngClass]="item.open ? 'd-block' : ''">
+                        <li class="menu-item" [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
+                            *ngFor="let item of item.submenu">
+                            <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
+                            <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                            <ul class="sub-menu" *ngIf="item.child" [ngClass]="item.open ? 'd-block' : ''">
+                                <li class="menu-item" *ngFor="let item of item.submenu">
+                                    <a routerLink="{{item.link}}">{{item.linkText}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <!-- Button & Phone -->
+                <div class="sigma_header-controls sigma_header-button">
+                    <a routerLink="/cart" class="sigma_header-contact">
+                        <i class="fal fa-shopping-bag"></i>
+                        <span>{{cartlength}}</span>
+                    </a>
+                    <a routerLink="/wishlist" class="sigma_header-contact">
+                        <i class="fal fa-heart"></i>
+                        <span>{{wishlistlength}}</span>
+                    </a>
+                </div>
+                <!-- Controls -->
+                <div class="sigma_header-controls style-2 tertiary-bg">
+                    <ul class="sigma_header-controls-inner">
+                        <!-- Desktop Toggler -->
+                        <li class="aside-toggler aside-trigger-right desktop-toggler" (click)="canvasToggle()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </li>
+                        <!-- Mobile Toggler -->
+                        <li class="aside-toggler style-2 aside-trigger-left" (click)="toggleNav()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Middle Header End -->
+</header>
+<!-- Canvas -->
+<aside class="sigma_aside sigma_aside-right sigma_aside-right-panel sigma_aside-bg"
+    [ngClass]="canvasmethod ? '' : 'open'">
+    <app-canvas></app-canvas>
+</aside>
+<div class="sigma_aside-overlay aside-trigger-right" (click)="canvasToggle()"></div>
+<!-- Canvas -->
+<aside class="sigma_aside sigma_aside-left" [ngClass]="navmethod ? '' : 'open'">
+    <app-mobile-menu></app-mobile-menu>
+</aside>
+<div class="sigma_aside-overlay aside-trigger-left" (click)="toggleNav()"></div>
