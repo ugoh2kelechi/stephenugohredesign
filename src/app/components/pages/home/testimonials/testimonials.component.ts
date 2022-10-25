@@ -11,8 +11,8 @@ export class TestimonialsComponent implements OnInit {
 
   public testimonials = data;
   constructor() { }
-  public getAuthor(items: string | any[]) {
-    var elems = author.filter((item: { id: string; }) => {
+  public getAuthor(items: any[]) {
+    var elems = author.filter((item: { id: number; }) => {
       return items.includes(item.id)
     });
     return elems;

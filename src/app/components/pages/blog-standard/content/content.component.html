@@ -35,7 +35,7 @@
                     <div class="sigma_post-thumb post-format-audio"
                         *ngIf="item.format === 'audio' && item.audio != '' ">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" [src]="sanitnizeAudioURL(item.audio)"></iframe>
+                            <!-- <iframe class="embed-responsive-item" [src]="sanitnizeAudioURL(item.audio)"></iframe> -->
                         </div>
                     </div>
                     <!-- Quote -->
@@ -86,7 +86,7 @@
                 <!-- Article End -->
                 <!-- Pagination Start -->
                 <div class="pagination-wrap pagination mb-0">
-                    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+                    <pagination-controls (pageChange)="page = $event" previousLabel="<" nextLabel=">">
                     </pagination-controls>
                 </div>
                 <!-- Pagination End -->

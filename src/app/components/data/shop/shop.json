@@ -324,7 +324,7 @@
         ],
         "stock": true,
         "rating": 4,
-        "discount": "",
+        "discount": 15,
         "price": 454,
         "productinfo": [
             "XS",
@@ -376,7 +376,7 @@
         ],
         "stock": true,
         "rating": 4,
-        "discount": "",
+        "discount": 15,
         "price": 664,
         "productinfo": [
             "XS",

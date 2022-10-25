@@ -8,11 +8,14 @@ import productblock from '../data/shop/shop.json';
   providedIn: 'root'
 })
 export class ProductService extends ProductServiceHelper {
+  getProductsFromWishlist(): Product[] {
+    throw new Error('Method not implemented.');
+  }
 
   public products = productblock;
   // Return all products from object
   getProducts(): Product[] {
-    return this.products
+    return this.products;
   } 
   // Add item to cart
   addToCart( product: Product ){
@@ -63,9 +66,9 @@ export class ProductService extends ProductServiceHelper {
   getProductCountInWishlist( product: Product ){
     return this.getWishlistProductsFromStorageById( product.id ).length;
   }
-  getProductsFromWishlist(){
-    return this.getWishlistProductsObject( this.products );
-  }
+  // getProductsFromWishlist(){
+  //   return this.getWishlistProductsObject( this.products );
+  // }
   getWishlistGrandTotal(products: Product[]){
       return products.reduce((subtotal: number, item: Product
         ) => subtotal + this.getProductCountInWishlist(item) * item.price,0)

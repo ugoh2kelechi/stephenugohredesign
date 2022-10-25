@@ -21,7 +21,7 @@
                     </td>
                     <td data-title="Product">
                         <div class="sigma_cart-product-wrapper">
-                            <img [src]="item.image[0]" [alt]="item.title">
+                            <img [src]="item.image" [alt]="item.title">
                             <div class="sigma_cart-product-body">
                                 <h6> <a routerLink="/shop-details/{{item.id}}">{{item.title}}</a> </h6>
                                 <p>{{getItemQuantity(item)}} pieces</p>

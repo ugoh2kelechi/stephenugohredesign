@@ -1,10 +1,11 @@
-import { AfterViewInit, AfterContentInit, Injectable, OnInit } from '@angular/core';
+import { AfterViewInit, AfterContentInit, Injectable, OnInit, Directive } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import service from '../data/service/service.json';
 
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class ServiceHelperService implements AfterContentInit, AfterViewInit,OnInit  {
 
   // pagination

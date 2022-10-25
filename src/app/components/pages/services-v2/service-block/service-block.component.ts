@@ -8,5 +8,6 @@ import { ServiceHelperService } from 'src/app/components/services/service-helper
 })
 export class ServiceBlockComponent extends ServiceHelperService {
 
+  resp: boolean = true;
 
 }

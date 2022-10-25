@@ -1,4 +1,4 @@
-import { AfterViewInit, AfterContentInit, Injectable, OnInit } from '@angular/core';
+import { AfterViewInit, AfterContentInit, Injectable, OnInit, Directive } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from '../models/product';
 import productblock from '../data/shop/shop.json';
@@ -10,6 +10,7 @@ import author from '../data/team.json';
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class ShopService extends ProductService implements AfterContentInit, AfterViewInit, OnInit {
   closeResult: string | undefined;
   modalContent: any;
@@ -50,29 +51,30 @@ export class ShopService extends ProductService implements AfterContentInit, Aft
   }
   // Category
   public getCategories(items: string | any[]) {
-    var elems = productcategory.filter((item: { id: string; }) => {
-      return items.includes(item.id)
+    var elems = productcategory.filter((item: { id: number; }) => {
+      return items.includes("item.id")
     });
     return elems;
   }
   // Author
   public getAuthor(items: string | any[]) {
-    var elems = author.filter((item: { id: string; }) => {
-      return items.includes(item.id)
+    var elems = author.filter((item: { id: number; }) => {
+      return items.includes("item.id")
     });
     return elems;
   }
   // Category Filter
   public setCategory(id: number) {
-    this.productcategory = id;
+    this.productcategory[0].id = id;
   }
   public getCategory() {
     return this.productcategory;
   }
   public getPostsByCategory(catId: string) {
-    return this.shopblock = productblock.filter((item: { category: number[]; }) => {
+    var sb = productblock.filter((item: { category: number[]; }) => {
       return item.category.includes(parseInt(catId));
     });
+    return sb;
   }
 
   // Search Filter
@@ -83,23 +85,24 @@ export class ShopService extends ProductService implements AfterContentInit, Aft
     return this.searchQuery;
   }
   public getPostsBySearch(query: string) {
-    return this.shopblock = productblock.filter((item: { title: (string) }) => {
+    var sb = productblock.filter((item: { title: (string) }) => {
       return item.title.toLowerCase().includes(query.toLowerCase());
     });
+    return sb;
   }
   // Fetch All filter
   public setPosts() {
-    var postsByCategory = this.getCategory() != undefined ? this.getPostsByCategory(this.getCategory()) : '';
+    // var postsByCategory = this.getCategory() != undefined ? this.getPostsByCategory(this.getCategory()) : '';
     var postsBySearch = this.getSearch() != undefined ? this.getPostsBySearch(this.getSearch()) : '';
 
-    if ((postsByCategory != undefined && postsByCategory != []) && postsByCategory.length > 0) {
-      this.shopblock = postsByCategory;
-    }
-    else if ((postsBySearch != undefined && postsBySearch != []) && postsBySearch.length > 0) {
-      this.shopblock = postsBySearch;
-    } else {
-      this.shopblock = this.productService.getProducts();
-    }
+    // if ((postsByCategory != undefined && postsByCategory != []) && postsByCategory.length > 0) {
+    //   this.shopblock = postsByCategory;
+    // }
+    // else if ((postsBySearch != undefined && postsBySearch != []) && postsBySearch.length > 0) {
+    //   this.shopblock = postsBySearch;
+    // } else {
+    //   this.shopblock = this.productService.getProducts();
+    // }
 
   }
   // Search 
@@ -124,7 +127,7 @@ export class ShopService extends ProductService implements AfterContentInit, Aft
 
   }
   ngOnInit(): void {
-    this.shopblock = this.productService.getProducts();
+    //this.shopblock = this.productService.getProducts();
     this.setCategoriesCount();
     this.cartlength = this.productService.getProductsCountInCart();
     this.wishlistlength = this.productService.getProductsCountInWishlist();
@@ -135,9 +138,9 @@ export class ShopService extends ProductService implements AfterContentInit, Aft
   }
   public setCategoriesCount() {
     for (var i = 0; i < this.productcategory.length; i++) {
-      var count = this.productblock.filter((post: { category: number[]; }) => { return post.category.includes(parseInt(this.productcategory[i].id)) });
-      count = count.length;
-      this.productcategory[i].count = count;
+      //var count = this.productblock.filter((post: { category: number[]; }) => { return post.category.includes(this.productcategory[i].id) });
+      // count = count.length;
+      // this.productcategory[i].count = count;
     }
   }
   // Social Share

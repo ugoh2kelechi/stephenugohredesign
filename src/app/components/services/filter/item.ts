@@ -1,7 +1,10 @@
 export interface Item {
-    id: string;
-    gridimg: string;
+    id: number;
     title: string;
+    gridimg: string;
     shortdesc: string;
     category: number[];
+    eventdate: string;
+    author: number[];
+    htmldesc: string;
 }

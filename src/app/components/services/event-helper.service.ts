@@ -1,4 +1,4 @@
-import { AfterViewInit, AfterContentInit, Injectable, OnInit } from '@angular/core';
+import { AfterViewInit, AfterContentInit, Injectable, OnInit, Directive } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import events from '../data/events/event.json';
 import authors from '../data/team.json';
@@ -9,6 +9,7 @@ import { Item } from './filter/item';
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class EventHelperService implements AfterContentInit, AfterViewInit,OnInit {
 
  // pagination
@@ -22,15 +23,15 @@ export class EventHelperService implements AfterContentInit, AfterViewInit,OnIni
    this.activeItem = 1;
  }
  // category
- public getCategories(items: string | any[]) {
-   var elems = category.filter((item: { id: string; }) => {
+ public getCategories(items: any[]) {
+   var elems = category.filter((item: { id: number; }) => {
      return items.includes(item.id)
    });
    return elems;
  }
  // Author
- public getAuthor(items: string | any[]) {
-   var elems = authors.filter((item: { id: string; }) => {
+ public getAuthor(items: any[]) {
+   var elems = authors.filter((item: { id: number; }) => {
      return items.includes(item.id)
    });
    return elems;
@@ -53,7 +54,7 @@ export class EventHelperService implements AfterContentInit, AfterViewInit,OnIni
  filteredItems: Item[] | Item[] = [] = [...this.items];
  filterItemsByCategory(category: Category, id: number) {
    this.filteredItems = this.items.filter((item: Item) => {
-     return item.category.includes(parseInt(category.id));
+     return item.category.includes(category.id);
    });
    this.activeItem = id
  }

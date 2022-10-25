@@ -12,23 +12,23 @@
     <!-- Popular Feed Start -->
     <div class="sidebar-widget widget-recent-posts">
         <h5 class="widget-title">Recent Posts</h5>
-        <article class="sigma_recent-post" *ngFor="let item of recentPost()">
+        <!-- <article class="sigma_recent-post" *ngFor="let item of recentPost()">
             <a routerLink="/blog-details/{{item.id}}"><img [src]="item.image[0]" [alt]="item.title"></a>
             <div class="sigma_recent-post-body">
                 <a routerLink="/blog-details/{{item.id}}"> <i class="far fa-calendar"></i>{{item.postdate}}</a>
                 <h6> <a routerLink="/blog-details/{{item.id}}">{{item.title | slice:0:50}}</a> </h6>
             </div>
-        </article>
+        </article> -->
     </div>
     <!-- Popular Feed End -->
     <!-- Categories Start -->
     <div class="sidebar-widget widget-categories">
         <h5 class="widget-title"> Our Categories </h5>
-        <ul class="sidebar-widget-list">
+        <!-- <ul class="sidebar-widget-list">
             <li *ngFor="let item of category">
                 <a routerLink="/blog/cat/{{item.id}}">{{item.title}}<span>{{item.count}}</span></a>
             </li>
-        </ul>
+        </ul> -->
     </div>
     <!-- Categories End -->
     <!-- Ad banner Start -->

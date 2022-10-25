@@ -36,7 +36,7 @@
             <ul class="navbar-nav">
                 <li class="menu-item" [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
                     *ngFor="let item of navigation">
-                    <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
+                    <!-- <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
                     <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
                     <ul class="sub-menu" *ngIf="item.child" [ngClass]="item.open ? 'd-block' : ''">
                         <li class="menu-item" [ngClass]="item.child == true ? 'menu-item-has-children' : ''"
@@ -49,7 +49,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
             <div class="d-flex">

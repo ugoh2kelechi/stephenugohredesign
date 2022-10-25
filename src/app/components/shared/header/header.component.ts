@@ -9,6 +9,7 @@ import data from '../../data/navigation.json';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent extends HelperService  {
+  @Input() layout: number | string | undefined;
   public navigation = data;
   public cartlength: number | undefined;
   public wishlistlength: number | undefined;
@@ -23,6 +24,5 @@ export class HeaderComponent extends HelperService  {
       this.wishlistlength = this.productService.getProductsCountInWishlist();
     })
   }
-  @Input() layout: number | string | undefined;
-
+  
 }

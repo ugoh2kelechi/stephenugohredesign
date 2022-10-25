@@ -10,8 +10,8 @@ import donor from '../../../data/team.json';
 export class DonorsComponent implements OnInit {
   public donors = data;
   constructor() { }
-  public getDonor(items: string | any[]) {
-    var elems = donor.filter((item: { id: string; }) => {
+  public getDonor(items: any[]) {
+    var elems = donor.filter((item: { id: number; }) => {
       return items.includes(item.id)
     });
     return elems;

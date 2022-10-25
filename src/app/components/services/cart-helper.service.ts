@@ -1,10 +1,11 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Directive, Injectable, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class CartHelperService implements OnInit {
 
   constructor(

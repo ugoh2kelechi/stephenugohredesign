@@ -1,10 +1,11 @@
-import { AfterViewInit, AfterContentInit, Injectable, OnInit } from '@angular/core';
+import { AfterViewInit, AfterContentInit, Injectable, OnInit, Directive } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import donation from '../data/donations/donation.json';
 
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class DonationHelperService implements AfterContentInit, AfterViewInit, OnInit {
   // pagination
   page: number = 1;

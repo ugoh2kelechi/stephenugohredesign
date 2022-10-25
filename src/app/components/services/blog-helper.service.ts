@@ -1,4 +1,4 @@
-import { Injectable, AfterContentInit, OnInit } from '@angular/core';
+import { Injectable, AfterContentInit, OnInit, Directive } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import authors from '../data/team.json';
@@ -9,6 +9,7 @@ import blogtags from '../data/blog/blogtags.json';
 @Injectable({
   providedIn: 'root'
 })
+@Directive()
 export class BlogHelperService implements AfterContentInit, OnInit {
 
   // pagination
@@ -27,37 +28,37 @@ export class BlogHelperService implements AfterContentInit, OnInit {
     this.searchQuery = '';
   }
   // category
-  public getCategories(items: string | any[]) {
-    var elems = blogcategory.filter((item: { id: string; }) => {
+  public getCategories(items: any[]) {
+    var elems = blogcategory.filter((item: { id: number; }) => {
       return items.includes(item.id)
     });
     return elems;
   }
   // Tags
-  public getTags(items: string | any[]) {
-    var elems = blogtags.filter((item: { id: string; }) => {
+  public getTags(items: any[]) {
+    var elems = blogtags.filter((item: { id: number; }) => {
       return items.includes(item.id)
     });
     return elems;
   }
   // Author
-  public getAuthor(items: string | any[]) {
-    var elems = authors.filter((item: { id: string; }) => {
+  public getAuthor(items: any[]) {
+    var elems = authors.filter((item: { id: number; }) => {
       return items.includes(item.id)
     });
     return elems;
   }
   // Count Category
   public setCategoriesCount() {
-    for (var i = 0; i < this.blogcategory.length; i++) {
-      var count = this.blogpost.filter((post: { category: number[]; }) => { return post.category.includes(parseInt(this.blogcategory[i].id)) });
-      count = count.length;
-      this.blogcategory[i].count = count;
-    }
+    // for (var i = 0; i < this.blogcategory.length; i++) {
+    //   var count = this.blogpost.filter((post: { category: number[]; }) => { return post.category.includes(parseInt(this.blogcategory[i].id)) });
+    //   count = count.length;
+    //   this.blogcategory[i].count = count;
+    // }
   }
   // Related post
   public getPostByCategory(items: string | any[]) {
-    var elems = blog.filter((post: { id: string; category: any[]; }) => { return parseInt(post.id) !== parseInt(this.route.snapshot.params.id) && post.category.some(r => items.includes(r)) });
+    var elems = blog.filter((post: { id: number; category: any[]; }) => { return post.id !== parseInt(this.route.snapshot.params.id) && post.category.some(r => items.includes(r)) });
     return elems;
   }
   // Get Date for Grid
@@ -131,20 +132,20 @@ export class BlogHelperService implements AfterContentInit, OnInit {
   }
   // Fetch All filter
   public setPosts() {
-    var postsByCategory = this.getCategory() != undefined ? this.getPostsByCategory(this.getCategory()) : '',
-      postsByTags = this.getTag() != undefined ? this.getPostsByTags(this.getTag()) : '',
-      postsByAuthor = this.getAuthorPost() != undefined ? this.getPostsByAuthors(this.getAuthorPost()) : '',
-      postsBySearch = this.getSearch() != undefined ? this.getPostsBySearch(this.getSearch()) : '';
+    // var postsByCategory = this.getCategory() != undefined ? this.getPostsByCategory(this.getCategory()) : '',
+    //   postsByTags = this.getTag() != undefined ? this.getPostsByTags(this.getTag()) : '',
+    //   postsByAuthor = this.getAuthorPost() != undefined ? this.getPostsByAuthors(this.getAuthorPost()) : '',
+    //   postsBySearch = this.getSearch() != undefined ? this.getPostsBySearch(this.getSearch()) : '';
 
-    if ((postsByCategory != '' || postsByCategory != undefined || postsByCategory != null) && postsByCategory.length > 0) {
-      this.blogpost = postsByCategory;
-    } else if ((postsByTags != '' || postsByTags != undefined || postsByTags != null) && postsByTags.length > 0) {
-      this.blogpost = postsByTags;
-    } else if ((postsByAuthor != '' || postsByAuthor != undefined || postsByAuthor != null) && postsByAuthor.length > 0) {
-      this.blogpost = postsByAuthor;
-    } else if ((postsBySearch != '' || postsBySearch != undefined || postsBySearch != null) && postsBySearch.length > 0) {
-      this.blogpost = postsBySearch;
-    }
+    // if ((postsByCategory != '' || postsByCategory != undefined || postsByCategory != null) && postsByCategory.length > 0) {
+    //   this.blogpost = postsByCategory;
+    // } else if ((postsByTags != '' || postsByTags != undefined || postsByTags != null) && postsByTags.length > 0) {
+    //   this.blogpost = postsByTags;
+    // } else if ((postsByAuthor != '' || postsByAuthor != undefined || postsByAuthor != null) && postsByAuthor.length > 0) {
+    //   this.blogpost = postsByAuthor;
+    // } else if ((postsBySearch != '' || postsBySearch != undefined || postsBySearch != null) && postsBySearch.length > 0) {
+    //   this.blogpost = postsBySearch;
+    // }
   }
   // Post Details
   public setPost(id: any) {
@@ -188,20 +189,20 @@ export class BlogHelperService implements AfterContentInit, OnInit {
   }
 
   public setDemoDate() {
-    var today = new Date();
-    this.blogpost.slice(0, 3).map((post: { timestamp: number; postdate: string; }) => (
-      post.timestamp = today.getTime() - (3 * 24 * 60 * 60 * 1000),
-      // Remove this date on your live demo. This is only used for preview purposed. Your date should actually be updated
-      // in the blog.json object
-      post.postdate = `${today.getDate() - 2} ${this.changeToMonth(today.getMonth())}, ${today.getFullYear()}`
-    ));
+    // var today = new Date();
+    // this.blogpost.slice(0, 3).map((post: { timestamp: number; postdate: string; }) => (
+    //   post.timestamp = today.getTime() - (3 * 24 * 60 * 60 * 1000),
+    //   // Remove this date on your live demo. This is only used for preview purposed. Your date should actually be updated
+    //   // in the blog.json object
+    //   post.postdate = `${today.getDate() - 2} ${this.changeToMonth(today.getMonth())}, ${today.getFullYear()}`
+    // ));
   }
 
   public recentPost() {
-    var elems = blog.filter((post: { timestamp: number | any; postdate: string | number | Date; }) => {
-      return post.timestamp < new Date(post.postdate);
-    });
-    return elems;
+    // var elems = blog.filter((post: { timestamp: number | any; postdate: string | number | Date; }) => {
+    //   return post.timestamp < new Date(post.postdate);
+    // });
+    // return elems;
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { AfterViewInit, OnInit, Injectable } from '@angular/core';
+import { AfterViewInit, OnInit, Injectable, HostListener } from '@angular/core';
 import $ from 'jquery';
 import 'magnific-popup';
 
@@ -8,16 +8,16 @@ import 'magnific-popup';
 export class HelperService implements OnInit, AfterViewInit {
   constructor() { }
   // Sticky Nav
-  // @HostListener('window:scroll', ['$event'])
-  // onWindowScroll(_e: any) {
-  //   if (window.pageYOffset > 100) {
-  //     let element = <HTMLElement>document.getElementById('can-sticky');
-  //     element.classList.add('sticky');
-  //   } else {
-  //     let element = <HTMLElement>document.getElementById('can-sticky');
-  //     element.classList.remove('sticky');
-  //   }
-  // }
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(_e: any) {
+    if (window.pageYOffset > 100) {
+      let element = <HTMLElement>document.getElementById('can-sticky');
+      element.classList.add('sticky');
+    } else {
+      let element = <HTMLElement>document.getElementById('can-sticky');
+      element.classList.remove('sticky');
+    }
+  }
   // Navigation
   navmethod: boolean = true;
   toggleNav() {

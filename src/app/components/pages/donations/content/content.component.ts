@@ -8,5 +8,4 @@ import { DonationHelperService } from 'src/app/components/services/donation-help
 })
 export class ContentComponent extends DonationHelperService {
 
-
 }
